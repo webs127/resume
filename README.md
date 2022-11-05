@@ -1,4 +1,4 @@
-- This Resume app is a simple, smooth and friendly application that
+- This Resume app is a simple, smooth and friendly application.
 
 - The codebase uses the MVVM architectural pattern and it works by organizing code into different folders
 for easy access or from separating the Ui from logic.
