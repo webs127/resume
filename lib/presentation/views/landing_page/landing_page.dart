@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:resume/presentation/resources/color_manager.dart';
 import 'package:resume/presentation/resources/constants.dart';
-import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 class LandingView extends StatefulWidget {
   const LandingView({Key? key}) : super(key: key);
@@ -14,7 +14,19 @@ class LandingView extends StatefulWidget {
 }
 
 class _LandingViewState extends State<LandingView> {
+  final githubLink =
+  Uri.parse(AppTexts.githubLink);
+  final twitterLink =
+  Uri.parse(AppTexts.twitterLink);
 
+  Future<void> _launchUrl(Uri uri) async {
+    if (!await launchUrl(uri)) {
+      throw 'Could not launch $uri';
+    }
+    else {
+      launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -119,7 +131,7 @@ class _LandingViewState extends State<LandingView> {
                     Expanded(
                       child: InkWell(
                         onTap: () async {
-                          await http.get(Uri.parse(AppTexts.githubLink));
+                          _launchUrl(githubLink);
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -128,19 +140,25 @@ class _LandingViewState extends State<LandingView> {
                             SizedBox(
                               width: 5,
                             ),
-                            Text(AppTexts.githubUser, style: TextStyle(fontFamily: "Poppins",fontSize: 14.3, fontWeight: FontWeight.w400),)
+                            Text(
+                              AppTexts.githubUser,
+                              style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.3,
+                                  fontWeight: FontWeight.w400),
+                            )
                           ],
                         ),
                       ),
                     ),
                     Expanded(
                       child: InkWell(
-                        onTap: () async {
-                          await http.get(Uri.parse(AppTexts.twitterLink));
+                        onTap: ()  {
+                          _launchUrl(twitterLink);
+
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-
                           children: const [
                             FaIcon(
                               FontAwesomeIcons.twitter,
@@ -149,7 +167,13 @@ class _LandingViewState extends State<LandingView> {
                             SizedBox(
                               width: 5,
                             ),
-                            Text(AppTexts.twitterUser, style: TextStyle(fontFamily: "Poppins",fontSize: 14.3, fontWeight: FontWeight.w400),)
+                            Text(
+                              AppTexts.twitterUser,
+                              style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.3,
+                                  fontWeight: FontWeight.w400),
+                            )
                           ],
                         ),
                       ),
@@ -158,7 +182,6 @@ class _LandingViewState extends State<LandingView> {
                       flex: 1,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-
                         children: const [
                           FaIcon(
                             FontAwesomeIcons.phone,
@@ -167,7 +190,13 @@ class _LandingViewState extends State<LandingView> {
                           SizedBox(
                             width: 5,
                           ),
-                          Text(AppTexts.phoneNum, style: TextStyle(fontFamily: "Poppins",fontSize: 14.3, fontWeight: FontWeight.w400),)
+                          Text(
+                            AppTexts.phoneNum,
+                            style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 14.3,
+                                fontWeight: FontWeight.w400),
+                          )
                         ],
                       ),
                     )
