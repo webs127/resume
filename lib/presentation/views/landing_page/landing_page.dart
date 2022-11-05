@@ -126,72 +126,21 @@ class _LandingViewState extends State<LandingView> {
                   height: 20,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Expanded(
-                      child: InkWell(
-                        onTap: () async {
-                          _launchUrl(githubLink);
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            FaIcon(FontAwesomeIcons.github),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              AppTexts.githubUser,
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.3,
-                                  fontWeight: FontWeight.w400),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: InkWell(
-                        onTap: ()  {
-                          _launchUrl(twitterLink);
-
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            FaIcon(
-                              FontAwesomeIcons.twitter,
-                              color: Colors.blue,
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              AppTexts.twitterUser,
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.3,
-                                  fontWeight: FontWeight.w400),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
+                    InkWell(
+                      onTap: () async {
+                        _launchUrl(githubLink);
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          FaIcon(
-                            FontAwesomeIcons.phone,
-                            color: Colors.green,
-                          ),
+                          FaIcon(FontAwesomeIcons.github),
                           SizedBox(
                             width: 5,
                           ),
                           Text(
-                            AppTexts.phoneNum,
+                            AppTexts.githubUser,
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 fontSize: 14.3,
@@ -199,6 +148,50 @@ class _LandingViewState extends State<LandingView> {
                           )
                         ],
                       ),
+                    ),
+                    InkWell(
+                      onTap: ()  {
+                        _launchUrl(twitterLink);
+
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          FaIcon(
+                            FontAwesomeIcons.twitter,
+                            color: Colors.blue,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            AppTexts.twitterUser,
+                            style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 14.3,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        FaIcon(
+                          FontAwesomeIcons.phone,
+                          color: Colors.green,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          AppTexts.phoneNum,
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: 14.3,
+                              fontWeight: FontWeight.w400),
+                        )
+                      ],
                     )
                   ],
                 ),

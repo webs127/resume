@@ -9,4 +9,6 @@ the app that gives title to the app while the landing view shows the contents of
 - I used the font_awesome_flutter package to get more icons that are not available in the material icons package and
 i also used the url launcher package for opening websites.
 
--
+- I would have added more views using bottomnavigationbar to make navigation more easy and would have also added a feature that
+allows the user to add files to access anytime and store them in a server e.g firebase.
+
