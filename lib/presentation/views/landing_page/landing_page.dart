@@ -1,0 +1,220 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:resume/presentation/resources/color_manager.dart';
+import 'package:resume/presentation/resources/constants.dart';
+import 'package:http/http.dart' as http;
+
+class LandingView extends StatefulWidget {
+  const LandingView({Key? key}) : super(key: key);
+
+  @override
+  State<LandingView> createState() => _LandingViewState();
+}
+
+class _LandingViewState extends State<LandingView> {
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 110,
+                      width: 110,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          image: const DecorationImage(
+                              image: AssetImage(ImageTexts.profilePic),
+                              fit: BoxFit.cover)),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          AppTexts.name,
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w400),
+                        ),
+                        SizedBox(
+                          height: 24,
+                        ),
+                        Text(
+                          AppTexts.username,
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w400),
+                        ),
+                        SizedBox(
+                          height: 24,
+                        ),
+                        Text(
+                          AppTexts.title,
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Divider(
+                  thickness: 3,
+                  color: ColorManager.black,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  AppTexts.description,
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 17.5, fontFamily: "Poppins"),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Divider(
+                  thickness: 3,
+                  color: ColorManager.black,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  AppTexts.offerCompany,
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 17.5, fontFamily: "Poppins"),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Divider(
+                  thickness: 3,
+                  color: ColorManager.black,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: InkWell(
+                        onTap: () async {
+                          await http.get(Uri.parse(AppTexts.githubLink));
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            FaIcon(FontAwesomeIcons.github),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(AppTexts.githubUser, style: TextStyle(fontFamily: "Poppins",fontSize: 14.3, fontWeight: FontWeight.w400),)
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: InkWell(
+                        onTap: () async {
+                          await http.get(Uri.parse(AppTexts.twitterLink));
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+
+                          children: const [
+                            FaIcon(
+                              FontAwesomeIcons.twitter,
+                              color: Colors.blue,
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(AppTexts.twitterUser, style: TextStyle(fontFamily: "Poppins",fontSize: 14.3, fontWeight: FontWeight.w400),)
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+
+                        children: const [
+                          FaIcon(
+                            FontAwesomeIcons.phone,
+                            color: Colors.green,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(AppTexts.phoneNum, style: TextStyle(fontFamily: "Poppins",fontSize: 14.3, fontWeight: FontWeight.w400),)
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.mail,
+                            color: Colors.red,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            AppTexts.emailUser,
+                            style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 14.3,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+        // bottomNavigationBar: BottomNavigationBar(
+        //   currentIndex: currentIndex,
+        //   onTap: onTap,
+        //   items: const [
+        //     BottomNavigationBarItem(label: "Profile", icon: Icon(Icons.person)),
+        //     BottomNavigationBarItem(label: "Skills", icon: Icon(Icons.person)),
+        //   ],
+        // ),
+      ),
+    );
+  }
+}
