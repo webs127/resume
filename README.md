@@ -12,7 +12,7 @@ i also used the url launcher package for opening websites.
 - I would have added more views using bottomnavigationbar to make navigation more easy and would have also added a feature that
 allows the user to add files to access anytime and store them in a server e.g firebase.
 
--
+-link to apk: https://appetize.io/app/t7sxjhymhneamm23ktlnrwpcy4?device=pixel4&osVersion=11.0&scale=75
 
 - I faced some challenges when i wanted to implement the changing of light and dark mode and also when i wanted to use the url launcher,
 i solved the issue with critical thinking and stack overflow.
