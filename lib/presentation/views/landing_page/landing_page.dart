@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:resume/presentation/resources/color_manager.dart';
 import 'package:resume/presentation/resources/constants.dart';
@@ -228,14 +226,6 @@ class _LandingViewState extends State<LandingView> {
             ),
           ),
         ),
-        // bottomNavigationBar: BottomNavigationBar(
-        //   currentIndex: currentIndex,
-        //   onTap: onTap,
-        //   items: const [
-        //     BottomNavigationBarItem(label: "Profile", icon: Icon(Icons.person)),
-        //     BottomNavigationBarItem(label: "Skills", icon: Icon(Icons.person)),
-        //   ],
-        // ),
       ),
     );
   }

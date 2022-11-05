@@ -8,7 +8,7 @@ class AppTexts {
   static const String githubLink = "https://https://github.com/webs127";
   static const String twitterLink = "https://twitter.com/Webs_127";
   static const String emailUser = "shittudivinedavidabolanle@gmail.com";
-  static const String phoneNum = "+2349037098411";
+  static const String phoneNum = "09037098411";
   static const String offerCompany = "With my background, I can offer new and innovative ideas to the company. While working as a flutter developer, i can develop user friendly and responsive applications using dart with different architectural patterns, one of which i am comfortable is the MVVM pattern, i can also offer high team spirit which is one crucial factor that leads to a successful team, time management is one of my hobbies, paying attention to get every detail of the task, goal-oriented, my first priority is the growth and development of the company and to satisfy the need of the customers.";
 }
 
