@@ -30,12 +30,14 @@ class _MyAppState extends State<MyApp> {
     DateTime darkThemeStartTime = DateTime(now.year, now.month, now.day, 19);
     DateTime darkThemeEndTime = DateTime(now.year, now.month, now.day, 6);
     int timerSeconds;
-    if (now.compareTo(darkThemeEndTime) > 0 && now.compareTo(darkThemeStartTime) < 0) {
+    if (now.compareTo(darkThemeEndTime) > 0 &&
+        now.compareTo(darkThemeStartTime) < 0) {
       _selectedTheme = ThemeManager.lightTheme;
       timerSeconds = darkThemeStartTime.difference(now).inSeconds;
-    } else if(now.compareTo(darkThemeStartTime) > 0) {
+    } else if (now.compareTo(darkThemeStartTime) > 0) {
       _selectedTheme = ThemeManager.darkTheme;
-      DateTime nextDayMorningTime = darkThemeStartTime.add(const Duration(days: 1));
+      DateTime nextDayMorningTime =
+          darkThemeStartTime.add(const Duration(days: 1));
       timerSeconds = nextDayMorningTime.difference(now).inSeconds;
     } else {
       _selectedTheme = ThemeManager.darkTheme;
@@ -43,31 +45,32 @@ class _MyAppState extends State<MyApp> {
     }
     _timer = Timer(
       Duration(seconds: timerSeconds),
-          () {
+      () {
         _selectTheme();
         setState(() {});
       },
     );
-
   }
+
   @override
   void initState() {
     super.initState();
     _selectTheme();
   }
+
   @override
   void dispose() {
     super.dispose();
     _timer?.cancel();
-
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'My Resume',
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: Routes.getRoutes,
-        initialRoute: RouteManager.splash,
+      title: 'My Resume',
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: Routes.getRoutes,
+      initialRoute: RouteManager.splash,
       theme: _selectedTheme,
     );
   }
