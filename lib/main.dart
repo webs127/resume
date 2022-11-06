@@ -32,7 +32,6 @@ class _MyAppState extends State<MyApp> {
     int timerSeconds;
     if (now.compareTo(darkThemeEndTime) > 0 && now.compareTo(darkThemeStartTime) < 0) {
       _selectedTheme = ThemeManager.lightTheme;
-      // theme will be changed at 7 pm
       timerSeconds = darkThemeStartTime.difference(now).inSeconds;
     } else if(now.compareTo(darkThemeStartTime) > 0) {
       _selectedTheme = ThemeManager.darkTheme;
@@ -42,7 +41,6 @@ class _MyAppState extends State<MyApp> {
       _selectedTheme = ThemeManager.darkTheme;
       timerSeconds = darkThemeEndTime.difference(now).inSeconds;
     }
-    print(timerSeconds);
     _timer = Timer(
       Duration(seconds: timerSeconds),
           () {
