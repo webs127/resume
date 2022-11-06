@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import '../views/landing_page/landing_page.dart';
+import 'package:resume/presentation/views/mainview/main_view.dart';
 import '../views/splash/splash.dart';
+import '../views/subViews/landing_page/landing_page.dart';
 
 class RouteManager {
   static const String splash = "/";
   static const String landing = "/landing";
+  static const String main = "/main";
 }
 
 class Routes {
@@ -14,6 +16,8 @@ class Routes {
         return MaterialPageRoute(builder: (_) => const SplashView());
       case RouteManager.landing:
         return MaterialPageRoute(builder: (_) => const LandingView());
+      case RouteManager.main:
+        return MaterialPageRoute(builder: (_) => const MainView());
       default:
         return unDefined();
     }

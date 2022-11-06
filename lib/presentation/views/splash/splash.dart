@@ -15,7 +15,7 @@ class _SplashViewState extends State<SplashView> {
   Timer? _timer;
 
   startDelay() => _timer = Timer(const Duration(seconds: 3), callback);
-  callback() => Navigator.pushReplacementNamed(context, RouteManager.landing);
+  callback() => Navigator.pushReplacementNamed(context, RouteManager.main);
 
   @override
   void initState() {

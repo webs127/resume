@@ -27,6 +27,7 @@ class _LandingViewState extends State<LandingView> {
   }
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
       child: Scaffold(
         body: Padding(
