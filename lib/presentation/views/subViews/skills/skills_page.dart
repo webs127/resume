@@ -11,7 +11,7 @@ class _SkillsViewState extends State<SkillsView> {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: const Text(" My Skills: Flutter/Dart",style: TextStyle(
+      child: Text(" My Skills: Flutter/Dart",style: TextStyle(
           fontFamily: "Poppins",
           fontSize: 28,
           fontWeight: FontWeight.w400),),
