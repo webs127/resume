@@ -10,7 +10,7 @@ class SkillsView extends StatefulWidget {
 class _SkillsViewState extends State<SkillsView> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: const Text(" My Skills: Flutter/Dart",style: TextStyle(
           fontFamily: "Poppins",
           fontSize: 28,
