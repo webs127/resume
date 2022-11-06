@@ -31,17 +31,14 @@ class _MyAppState extends State<MyApp> {
     DateTime darkThemeEndTime = DateTime(now.year, now.month, now.day, 6);
     int timerSeconds;
     if (now.compareTo(darkThemeEndTime) > 0 && now.compareTo(darkThemeStartTime) < 0) {
-      print('lightTheme');
       _selectedTheme = ThemeManager.lightTheme;
       // theme will be changed at 7 pm
       timerSeconds = darkThemeStartTime.difference(now).inSeconds;
     } else if(now.compareTo(darkThemeStartTime) > 0) {
-      print('darkTheme');
       _selectedTheme = ThemeManager.darkTheme;
       DateTime nextDayMorningTime = darkThemeStartTime.add(const Duration(days: 1));
       timerSeconds = nextDayMorningTime.difference(now).inSeconds;
     } else {
-      print('darkTheme');
       _selectedTheme = ThemeManager.darkTheme;
       timerSeconds = darkThemeEndTime.difference(now).inSeconds;
     }
